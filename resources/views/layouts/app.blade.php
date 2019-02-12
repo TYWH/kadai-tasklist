@@ -24,6 +24,8 @@
             </nav>
         </header>
         <div class="continer">
+            @include('commons.error_message')
+            
             @yield('content')
         </div>
         

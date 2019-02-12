@@ -8,11 +8,20 @@
     <div class="col-6">
         {!! Form::model($task,['route' => 'tasks.store']) !!}
             <div class="form-group">
-                {!! Form::label('content','メッセージ：') !!}
+                {!! Form::label('content','内容：') !!}
                 {!! Form::text('content',null,['class' => 'form-control']) !!}
-                
-                {!! Form::submit('設定',['class' => 'btn']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('status','タスク状況：') !!}
+                {!! Form::select('status',[
+                '未' => '未',
+                '済' => '済',
+                '優先順位高' => '優先順位高',
+                '優先順位中' => '優先順位中',
+                '優先順位低' => '優先順位低'
+                ]) !!}
+            </div>
+            {!! Form::submit('設定',['class' => 'btn']) !!}
         {!! Form::close() !!}
     </div>
 </div>
