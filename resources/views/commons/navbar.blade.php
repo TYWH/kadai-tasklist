@@ -1,5 +1,5 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/">TaskList</a>
         
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
@@ -10,7 +10,12 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if(Auth::check())
-                    {{-- ここに、ユーザー名が表示され、ドロップダウンタグを表示 --}}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item">{!! link_to_route('logout.get','Log out') !!}</li>
+                        </ul>
+                    </li>
                 @else
                     <li class="nav-item">{!! link_to_route('signup.get','Signup',[],['class' => 'nav-link']) !!}</li>
                     <li class="nav-item">{!! link_to_route('login','Login',[],['class' => 'nav-link']) !!}</li>
