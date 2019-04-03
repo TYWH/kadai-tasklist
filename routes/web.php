@@ -13,3 +13,6 @@
 
 Route::get('/','TaskController@index');
 Route::resource('tasks','TaskController');
+
+//ユーザ登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
